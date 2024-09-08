@@ -440,15 +440,15 @@ shap<span class="token punctuation">.</span>summary_plot<span class="token punct
 <p><img src="/images/20240823004858/image12.png"></p>
 <p>解释shape为什么不能是因果，以及可以是因果的情况： <a target="_blank" rel="noopener" href="https://towardsdatascience.com/be-careful-when-interpreting-predictive-models-in-search-of-causal-insights-e68626e664b6">https://towardsdatascience.com/be-careful-when-interpreting-predictive-models-in-search-of-causal-insights-e68626e664b6</a></p>
 <p>参考：<br><a target="_blank" rel="noopener" href="https://www.thinkingdata.cn/thinking/blog/knowledge/756.html">https://www.thinkingdata.cn/thinking/blog/knowledge/756.html</a></p>
-<h2 id="2-干预评估"><a href="#2-干预评估" class="headerlink" title="2.干预评估"></a>2.干预评估</h2><p>本质上，干预评估和数据分析无区别，都是判断A对于B的影响；从表现上来看，两者更多是是否量化的差异，即定量分析。当然对于因果关系不明，即干预A是否对指标B产生影响时，也可以通过因果推断&#x2F;ABtest来做定性评估。干预评估总体上分为假设检验、AB test、因果推断。假设检验是通过分析样本数据来检验某一个针对总体的论断是否成立，保证总体结论的鲁棒性；ABtest即在保证随机性的情况下，严格论证策略的影响效果；因果推断即在观察性数据对满足假设的场景下，评估策略的影响效果。</p>
-<h3 id="2-1-假设检验"><a href="#2-1-假设检验" class="headerlink" title="2.1 假设检验"></a>2.1 假设检验</h3><p>假设检验，就是通过分析样本数据来检验某一个针对总体的论断是否成立。</p>
+<h2 id="3-干预评估"><a href="#3-干预评估" class="headerlink" title="3.干预评估"></a>3.干预评估</h2><p>本质上，干预评估和数据分析无区别，都是判断A对于B的影响；从表现上来看，两者更多是是否量化的差异，即定量分析。当然对于因果关系不明，即干预A是否对指标B产生影响时，也可以通过因果推断&#x2F;ABtest来做定性评估。干预评估总体上分为假设检验、AB test、因果推断。假设检验是通过分析样本数据来检验某一个针对总体的论断是否成立，保证总体结论的鲁棒性；ABtest即在保证随机性的情况下，严格论证策略的影响效果；因果推断即在观察性数据对满足假设的场景下，评估策略的影响效果。</p>
+<h3 id="3-1-假设检验"><a href="#3-1-假设检验" class="headerlink" title="3.1 假设检验"></a>3.1 假设检验</h3><p>假设检验，就是通过分析样本数据来检验某一个针对总体的论断是否成立。</p>
 <p>待检验的针对总体的论断叫做零假设，一般用 $H_{0}$  表示。<br>与零假设相对立的假设叫做备选假设，一般用 $H_{a}​$ 表示。</p>
 <p>一般来说，在假设检验过程中，会先预设  假设是成立的，从这里出发进行分析，直到有证据（样本数据和样本统计值）表明其不成立，才会拒绝该假设。<br>参考：<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7042729719749410847">https://juejin.cn/post/7042729719749410847</a></p>
-<h3 id="2-2-随机试验：AB-test"><a href="#2-2-随机试验：AB-test" class="headerlink" title="2.2 随机试验：AB test"></a>2.2 随机试验：AB test</h3><p>哪个线上选项会更好？我们经常需要做出这样的选择。当我们想要在两个策略之间做出决定时，理想的方案是面向同一拨用户，在两个平行时空，平行时空1体验原策略A，平行时空2体验新策略B，然后根据观测到的事实进行比较，以决定哪个策略胜出。然而在现实世界中，不存在两个平行时空，针对同一用户，我们只能观察到其接受策略A或策略B的一种效果，即反事实结果是观测不到的。</p>
+<h3 id="3-2-随机试验：AB-test"><a href="#3-2-随机试验：AB-test" class="headerlink" title="3.2 随机试验：AB test"></a>3.2 随机试验：AB test</h3><p>哪个线上选项会更好？我们经常需要做出这样的选择。当我们想要在两个策略之间做出决定时，理想的方案是面向同一拨用户，在两个平行时空，平行时空1体验原策略A，平行时空2体验新策略B，然后根据观测到的事实进行比较，以决定哪个策略胜出。然而在现实世界中，不存在两个平行时空，针对同一用户，我们只能观察到其接受策略A或策略B的一种效果，即反事实结果是观测不到的。</p>
 <p>因此，在现实世界中，我们通常采用实验的方法做出决策。它将用户分配到不同的组，同一组内的用户在实验期间使用相同的策略，不同组的用户使用不同的策略。同时，日志系统根据实验系统为用户打标记，用于记录用户的行为，然后根据带有标记的日志计算度量差异，并进行统计分析以排除由于噪声导致的任何差异。实验者通过这些指标去理解和分析不同的策略对用户起了什么样的作用，是否符合实验预先假设。<br><img src="/images/20240823004858/temp2.png"><br>参考：<br><a target="_blank" rel="noopener" href="https://tech.meituan.com/2023/08/24/ab-test-practice-in-meituan.html">https://tech.meituan.com/2023/08/24/ab-test-practice-in-meituan.html</a></p>
-<h3 id="2-3-观察性研究：因果推断"><a href="#2-3-观察性研究：因果推断" class="headerlink" title="2.3 观察性研究：因果推断"></a>2.3 观察性研究：因果推断</h3><p>在2022-2023期间，行业内对于因果推断的效果认可度很高，但是在随着分析推进，实际效果一般，项目认可度较低，因此属于特殊武器。<br><img src="/images/20240823004858/temp1.png"></p>
-<h2 id="3-时间序列预测"><a href="#3-时间序列预测" class="headerlink" title="3.时间序列预测"></a>3.时间序列预测</h2><p>常见的时间预测方法：prophet、neuralprophet、lstm等，后续有机会出一个单独文章。</p>
-<h2 id="4-汇报方面"><a href="#4-汇报方面" class="headerlink" title="4.汇报方面"></a>4.汇报方面</h2><p>信息传递模型：标准的数据分析工作流。<br><img src="/images/20240823004858/temp4.png"></p>
+<h3 id="3-3-观察性研究：因果推断"><a href="#3-3-观察性研究：因果推断" class="headerlink" title="3.3 观察性研究：因果推断"></a>3.3 观察性研究：因果推断</h3><p>在2022-2023期间，行业内对于因果推断的效果认可度很高，但是在随着分析推进，实际效果一般，项目认可度较低，因此属于特殊武器。<br><img src="/images/20240823004858/temp1.png"></p>
+<h2 id="4-时间序列预测"><a href="#4-时间序列预测" class="headerlink" title="4.时间序列预测"></a>4.时间序列预测</h2><p>常见的时间预测方法：prophet、neuralprophet、lstm等，后续有机会出一个单独文章。</p>
+<h2 id="5-汇报方面"><a href="#5-汇报方面" class="headerlink" title="5.汇报方面"></a>5.汇报方面</h2><p>信息传递模型：标准的数据分析工作流。<br><img src="/images/20240823004858/temp4.png"></p>
 <p>内容梳理：<br><img src="/images/20240823004858/temp3.png"></p>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.iyunying.org/work/301916.html">https://www.iyunying.org/work/301916.html</a></p>
 
