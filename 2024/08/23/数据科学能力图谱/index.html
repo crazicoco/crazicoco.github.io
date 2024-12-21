@@ -1,0 +1,1164 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据科学能力图谱, 数据科学家、行业分析师">
+    <meta name="description" content="数据科学是一个以输出认知为交付对象的工作，那需要什么能力呢？本文试图从体系思考问题，将数据科学能力进行解耦合。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据科学能力图谱 | 飞絮的数据屋</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">飞絮的数据屋</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">飞絮的数据屋</div>
+        <div class="logo-desc">
+            
+            数据科学家、行业分析师
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据科学能力图谱</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/">
+                                <span class="chip bg-color">数据科学能力图谱</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                数据分析
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>网上关于分析方法的讨论有很多，但是缺乏思考，不够深入。在我看来，数据科学岗位主要分为基础能力、业务能力，基础能力不在展开，业务能力通常包括数据存储和管理能力、数据分析能力、干预评估能力、预测能力三个子模块，以下我会从自身的理解出发，对数据科学岗位能力解耦合，模块化。具体内容包括指标体系建设、数据分析、实验&#x2F;因果推断、预测、汇报五方面，数据存储和管理能力，相对技术化些，偏数据工程，不在此展开。</p>
+<p><img src="/images/20240823004858/image.png"></p>
+<h2 id="1-建立指标监控体系"><a href="#1-建立指标监控体系" class="headerlink" title="1.建立指标监控体系"></a>1.建立指标监控体系</h2><p>数据指标体系建设的方法可以总结为三个步骤，即明确业务目标，理清用户生命周期以及行为路径以及指标分层治理，在这三个步骤当中又涉及到 OSM(Object,Strategy,Measure),AARRR(Acquisition,Activation,Retention,Revenue,Referral),UJM(User, Journey, Map), MECE (Mutually Exclusive, Collectively Exhaustive) 四个模型，这四个模型是指导我们构建完整而清晰的指标体系的方法论。<br><img src="/images/20240823004858/image2.png"></p>
+<ol>
+<li><p>OSM模型-明确业务目标，数据赋能业务<br>OSM模型是 Object, Strategy, Measure的缩写。数据服务于业务才能赋能业务，数据脱离业务，那么数据就会失去其价值。<br>所以，我们在建立数据指标体系之前，一定要清晰的了解业务目标，也就是模型中的O,Object。换句话说，业务的目标也就是业务的核心KPI，了解业务的核心KPI能够帮助我们快速理清指标体系的方向。了解业务目标方向之后，就需要制定相应的行动策略，也就是模型中的S,Strategy。行动策略的制定可以根据产品生命周期或者用户行为路径进行拆解，也就是把业务的核心KPI拆解到产品生命周期(AARRR)或者用户行为路径(UJM)当中，在整条链路当中分析可以提升核心KPI的点。<br>最后，就需要我们制定较细的评估指标，也就是模型中的M,Measure。评估指标的制定是将产品链路或者行为路径中的各个核心KPI进行下钻细分，这里用到的方法就是麦肯锡著名的MECE模型，需保证每个细分指标是完全独立且相互穷尽的。<br>总结一下OSM模型的内容及其与AARRR,UJM,MECE模型之间的关系，OSM模型是指标体系建设的指导思想，理解业务KPI是OSM模型的核心；制定行动策略是实现业务KPI的手段，而AARRR和UJM模型是实现策略制定的方法论；制定细分指标是评估业务策略优劣的方法，而MECE模型制定细分指标的方法论。<br><img src="/images/20240823004858/image3.png"></p>
+</li>
+<li><p>AARRR模型和UJM模型–理清用户生命周期及行为路径<br>前面我们提到AARRR和UJM模型是实现策略制定的方法论，对于刚入门或者想要转行的朋友来说，可能对这两个模型都还很陌生，下面我们就简单的介绍下这两个模型。AARRR和UJM模型都是路径模型，二者原理相似，只是它们出发的角度不一样。AARRR模型是从产品角度出发，揭示产品的整个生命周期；而UJM模型是从用户出发，揭示用户的行为路径。AARRR模型是基于产品角度，简单地来说就是拉新，促活，留存，付费，推广。对于一款产品来说，我们首先要从各个渠道获取用户；其次需要激活这些用户并让他们留存下来；对于留存下来的用户引导他们付费以及推广产品。UJM模型则是从用户角度出发，描述了用户进入产品的整个路径流程，即注册，登陆，加购，购买，复购链路流程。无论是产品角度还是用户角度进行链路流程，核心KPI都可以下钻到相应的节点，这样我们就在整条链路流程当中拆解了业务的核心KPI。这样的好处是，我们可以从更多的角度和维度监控和分析业务问题。<br><img src="/images/20240823004858/image4.png"></p>
+</li>
+<li><p>MECE模型–指标体系分级治理<br>前面两个步骤，首先我们明确了业务核心目标；其次，我们将业务核心的KPI下钻到产品生命周期或者用户路径行为中；接下来我们需要对这些核心KPI向下进行三到五层的拆解，这个过程我们成为指标体系分级治理，用到的模型是MECE模型。MECE模型的指导思想是完全独立，相互穷尽，根据这个原则拆分可以暴露业务最本质的问题，帮助数据分析师们快速地定位业务问题。例如，客户总成交额GMV进行以及拆解可以是付费用户数与平均客单价的乘积。<br><img src="/images/20240823004858/image5.png"></p>
+</li>
+<li><p>案例解读<br>如果你的老板给出你一个很大的业务问题，他说，“我们现在做一套GMV相关的指标体系，你出一个方案吧！”面对这么大的一个命题，我们就需要对命题进行分解，将其分解成若干个子问题并找到各个子问题之间的联系，做成一套业务监控指标体系，帮助数据分析师快速定义业务问题。在这里，我们就通过上面提到的三个步骤，四个模型去搭建GMV相关的指标体系。<br><img src="/images/20240823004858/image6.png"></p>
+</li>
+</ol>
+<p>详细内容可以参考：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI3MTkxMDA3MQ==&mid=2247497829&idx=1&sn=e8021b1ced71f95713d55daa2832adbb&chksm=eb382dbddc4fa4abaa302d9c8413a9f5cee120b2da84c68136303cdf22855d718c1803302b85&scene=178&cur_album_id=1568698510030536707#rd">https://mp.weixin.qq.com/s?__biz=MzI3MTkxMDA3MQ==&amp;mid=2247497829&amp;idx=1&amp;sn=e8021b1ced71f95713d55daa2832adbb&amp;chksm=eb382dbddc4fa4abaa302d9c8413a9f5cee120b2da84c68136303cdf22855d718c1803302b85&amp;scene=178&amp;cur_album_id=1568698510030536707#rd</a></p>
+<h2 id="2-数据分析"><a href="#2-数据分析" class="headerlink" title="2.数据分析"></a>2.数据分析</h2><h3 id="1-1-数据分析分类及数据分析框架"><a href="#1-1-数据分析分类及数据分析框架" class="headerlink" title="1.1 数据分析分类及数据分析框架"></a>1.1 数据分析分类及数据分析框架</h3><p>数据分析包括：产品、市场、运营三大业务场景，针对游戏业务，具体分为：IP引进、游戏立项、游戏研发、资源头发、市场营销、游戏运营。<br><img src="/images/20240823004858/image7.png"></p>
+<p>数据分析流程：<br><img src="/images/20240823004858/image8.png"></p>
+<h3 id="1-2-分析框架：分析过程"><a href="#1-2-分析框架：分析过程" class="headerlink" title="1.2 分析框架：分析过程"></a>1.2 分析框架：分析过程</h3><ol>
+<li><p>用户行为理论：<br><img src="/images/20240823004858/image9.png"></p>
+</li>
+<li><p>5W2H方法<br><img src="/images/20240823004858/image10.png"></p>
+</li>
+<li><p>AARRR模型</p>
+</li>
+<li><p>Prapa模型</p>
+</li>
+<li><p>RFM模型<br>RFM模型是用户价值模型，是衡量客户价值和客户创利能力的重要工具和手段，就是根据用户活跃程度和交易金额的贡献，进行用户价值细分的一种方法。<br><img src="/images/20240823004858/image11.png"></p>
+</li>
+</ol>
+<h3 id="1-3-分析方法：分析过程"><a href="#1-3-分析方法：分析过程" class="headerlink" title="1.3 分析方法：分析过程"></a>1.3 分析方法：分析过程</h3><ol>
+<li><p>常见分析方法：对比分析、分组分析（规则构建）、结构分析（TGI）、平均分析、交叉分析、漏斗分析、矩阵分析、综合评价分析</p>
+</li>
+<li><p>5W1H分析<br>我们还可以进一步分析，为什么这些用户流失了会回归游戏呢，是因为什么原因呢？可以用5W1H法，找出什么类型的玩家在什么时间什么地点因为什么原因而回归；</p>
+</li>
+<li><p>相关分析法（回归分析）<br>通过对待解释的影响变量和目标做线性回归，明确整体的回归影响，以及看person系数等，相关性。</p>
+</li>
+<li><p>聚类分析法<br>通过对有效的特征进行聚类，将人群划分为多种类别，分组观察；</p>
+</li>
+<li><p>方法分析<br>该方法可以配合聚类分析法找出异常值，把异常值找出来并剔除，聚类分析出来的结果会更精准；</p>
+</li>
+<li><p>预测法<br>通过时间序列预测方法预测当前结果，对比目前结果，推测当前的结果是受到什么因素导致的结果。</p>
+</li>
+<li><p>shape因素分析方法</p>
+</li>
+</ol>
+<p>利用机器学习预测目标变量获得特征重要值shape值（Permutation Feature Importance, PFI）或SHAP Value，</p>
+<pre class="language-python" data-language="python"><code class="language-python">feature_bin_list <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> features_jk<span class="token punctuation">.</span>columns <span class="token keyword">if</span> i <span class="token keyword">in</span> 
+               <span class="token punctuation">[</span><span class="token string">'dp_onlinetime_lastwk'</span><span class="token punctuation">,</span> <span class="token string">'gender'</span><span class="token punctuation">,</span> <span class="token string">'is_tft'</span><span class="token punctuation">,</span>
+       <span class="token string">'is_act_dp_lastwk'</span><span class="token punctuation">,</span> <span class="token string">'is_act_tft_lastwk'</span><span class="token punctuation">,</span> <span class="token string">'max_itier'</span><span class="token punctuation">,</span> <span class="token string">'sum_cash'</span><span class="token punctuation">,</span>
+       <span class="token string">'active_days'</span><span class="token punctuation">,</span> <span class="token string">'lost_count'</span><span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+tx <span class="token operator">=</span> features_jk<span class="token punctuation">[</span>feature_bin_list<span class="token punctuation">]</span>
+y <span class="token operator">=</span> features_jk<span class="token punctuation">[</span><span class="token string">"reflow_tag"</span><span class="token punctuation">]</span>
+
+train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> labels_train<span class="token punctuation">,</span> labels_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> train_size<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+xgb_model <span class="token operator">=</span> xgb<span class="token punctuation">.</span>XGBClassifier<span class="token punctuation">(</span>learning_rate<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span> n_estimators<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+xgb_model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> labels_train<span class="token punctuation">)</span>
+
+explainer <span class="token operator">=</span> shap<span class="token punctuation">.</span>TreeExplainer<span class="token punctuation">(</span>xgb_model<span class="token punctuation">)</span>
+shap_values <span class="token operator">=</span> explainer<span class="token punctuation">.</span>shap_values<span class="token punctuation">(</span>test<span class="token punctuation">)</span>
+<span class="token comment"># 传入特征矩阵X，计算shap值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"base value:"</span><span class="token punctuation">,</span> explainer<span class="token punctuation">.</span>expected_value<span class="token punctuation">)</span>
+
+<span class="token comment"># 绘制全局解释图</span>
+shap_values_all <span class="token operator">=</span> explainer<span class="token punctuation">.</span>shap_values<span class="token punctuation">(</span>test<span class="token punctuation">)</span>
+shap<span class="token punctuation">.</span>summary_plot<span class="token punctuation">(</span>shap_values_all<span class="token punctuation">,</span> test<span class="token punctuation">,</span> plot_type<span class="token operator">=</span><span class="token string">"bar"</span><span class="token punctuation">,</span> feature_names<span class="token operator">=</span>feature_bin_list<span class="token punctuation">)</span>
+
+shap<span class="token punctuation">.</span>summary_plot<span class="token punctuation">(</span>shap_values_all<span class="token punctuation">,</span> test<span class="token punctuation">)</span></code></pre>
+<p><img src="/images/20240823004858/image12.png"></p>
+<p>解释shape为什么不能是因果，以及可以是因果的情况： <a target="_blank" rel="noopener" href="https://towardsdatascience.com/be-careful-when-interpreting-predictive-models-in-search-of-causal-insights-e68626e664b6">https://towardsdatascience.com/be-careful-when-interpreting-predictive-models-in-search-of-causal-insights-e68626e664b6</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://www.thinkingdata.cn/thinking/blog/knowledge/756.html">https://www.thinkingdata.cn/thinking/blog/knowledge/756.html</a></p>
+<h2 id="3-干预评估"><a href="#3-干预评估" class="headerlink" title="3.干预评估"></a>3.干预评估</h2><p>本质上，干预评估和数据分析无区别，都是判断A对于B的影响；从表现上来看，两者更多是是否量化的差异，即定量分析。当然对于因果关系不明，即干预A是否对指标B产生影响时，也可以通过因果推断&#x2F;ABtest来做定性评估。干预评估总体上分为假设检验、AB test、因果推断。假设检验是通过分析样本数据来检验某一个针对总体的论断是否成立，保证总体结论的鲁棒性；ABtest即在保证随机性的情况下，严格论证策略的影响效果；因果推断即在观察性数据对满足假设的场景下，评估策略的影响效果。</p>
+<h3 id="3-1-假设检验"><a href="#3-1-假设检验" class="headerlink" title="3.1 假设检验"></a>3.1 假设检验</h3><p>假设检验，就是通过分析样本数据来检验某一个针对总体的论断是否成立。</p>
+<p>待检验的针对总体的论断叫做零假设，一般用 $H_{0}$  表示。<br>与零假设相对立的假设叫做备选假设，一般用 $H_{a}​$ 表示。</p>
+<p>一般来说，在假设检验过程中，会先预设  假设是成立的，从这里出发进行分析，直到有证据（样本数据和样本统计值）表明其不成立，才会拒绝该假设。<br>参考：<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7042729719749410847">https://juejin.cn/post/7042729719749410847</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hdu-zsk/p/6293721.html">https://www.cnblogs.com/hdu-zsk/p/6293721.html</a></p>
+<h3 id="3-2-随机试验：AB-test"><a href="#3-2-随机试验：AB-test" class="headerlink" title="3.2 随机试验：AB test"></a>3.2 随机试验：AB test</h3><p>哪个线上选项会更好？我们经常需要做出这样的选择。当我们想要在两个策略之间做出决定时，理想的方案是面向同一拨用户，在两个平行时空，平行时空1体验原策略A，平行时空2体验新策略B，然后根据观测到的事实进行比较，以决定哪个策略胜出。然而在现实世界中，不存在两个平行时空，针对同一用户，我们只能观察到其接受策略A或策略B的一种效果，即反事实结果是观测不到的。</p>
+<p>因此，在现实世界中，我们通常采用实验的方法做出决策。它将用户分配到不同的组，同一组内的用户在实验期间使用相同的策略，不同组的用户使用不同的策略。同时，日志系统根据实验系统为用户打标记，用于记录用户的行为，然后根据带有标记的日志计算度量差异，并进行统计分析以排除由于噪声导致的任何差异。实验者通过这些指标去理解和分析不同的策略对用户起了什么样的作用，是否符合实验预先假设。<br><img src="/images/20240823004858/temp2.png"><br>参考：<br><a target="_blank" rel="noopener" href="https://tech.meituan.com/2023/08/24/ab-test-practice-in-meituan.html">https://tech.meituan.com/2023/08/24/ab-test-practice-in-meituan.html</a></p>
+<h3 id="3-3-观察性研究：因果推断"><a href="#3-3-观察性研究：因果推断" class="headerlink" title="3.3 观察性研究：因果推断"></a>3.3 观察性研究：因果推断</h3><p>在2022-2023期间，行业内对于因果推断的效果认可度很高，但是在随着分析推进，实际效果一般，项目认可度较低，因此属于特殊武器。<br><img src="/images/20240823004858/temp1.png"></p>
+<h2 id="4-时间序列预测"><a href="#4-时间序列预测" class="headerlink" title="4.时间序列预测"></a>4.时间序列预测</h2><p>常见的时间预测方法：prophet、neuralprophet、lstm等，后续有机会出一个单独文章。</p>
+<h2 id="5-汇报方面"><a href="#5-汇报方面" class="headerlink" title="5.汇报方面"></a>5.汇报方面</h2><p>信息传递模型：标准的数据分析工作流。<br><img src="/images/20240823004858/temp4.png"></p>
+<p>内容梳理：<br><img src="/images/20240823004858/temp3.png"></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.iyunying.org/work/301916.html">https://www.iyunying.org/work/301916.html</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">飞絮</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://crazicoco.github.io/2024/08/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/">https://crazicoco.github.io/2024/08/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">飞絮</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/">
+                                    <span class="chip bg-color">数据科学能力图谱</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="数据科学能力图谱">
+                        
+                        <span class="card-title">数据科学能力图谱</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据科学是一个以输出认知为交付对象的工作，那需要什么能力呢？本文试图从体系思考问题，将数据科学能力进行解耦合。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    数据分析
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%83%BD%E5%8A%9B%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">数据科学能力图谱</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/23/%E4%BB%8E%E6%B8%B8%E6%88%8F%E4%B8%9A%E5%8A%A1%E6%80%9D%E8%80%83%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="思考在游戏业务中如何做好数据分析">
+                        
+                        <span class="card-title">思考在游戏业务中如何做好数据分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            游戏业务天然拥有C端用户数据，而数据分析工作是处理数据获得核心价值的重要认知工作，因此在游戏场景进行数据分析是一个寻找价值的工作。那如何做好呢？我想无非就是想清楚，你能够做什么？怎么做？以及怎么给别人输出？本文尝试将这个复杂的问题拆解，并进行剥离讨论，希望对读者有益，与君共勉。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    数据分析
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%89%8B%E6%B8%B8%E8%A1%8C%E4%B8%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">手游行业的数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">飞絮</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">8.7k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/crazicoco" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1332574734@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1332574734" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1332574734" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
