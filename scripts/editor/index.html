@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客编辑器</title>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.css">
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    .login-overlay {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center; z-index: 9999;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      overflow: hidden;
+    }
+    .login-overlay::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      top: -150px;
+      right: -150px;
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+    .login-overlay::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+      animation: floatOrb 10s ease-in-out infinite reverse;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 50px) scale(1.1); }
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 2.5rem; border-radius: 20px; width: 360px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.3), 0 0 60px rgba(102, 126, 234, 0.1);
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .login-box h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .login-box p { color: #6b7280; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .login-box input {
+      width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 10px;
+      font-size: 1rem; margin-bottom: 1rem; outline: none;
+    }
+    .login-box input:focus { border-color: #2563eb; }
+    .login-box button {
+      width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none;
+      border-radius: 10px; font-size: 1rem; cursor: pointer; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .login-box button:hover { background: #1d4ed8; }
+    .login-error { color: #ef4444; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
+
+    .app { display: flex; height: 100vh; }
+    .sidebar {
+      width: 280px; background: #1f2937; color: #fff; display: flex; flex-direction: column;
+      flex-shrink: 0; border-right: 1px solid #374151;
+    }
+    .greeting {
+      padding: 1.5rem 1.25rem 1rem; text-align: center;
+    }
+    .greeting .emoji {
+      font-size: 3rem; margin-bottom: 0.5rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .greeting .text {
+      font-size: 1rem; font-weight: 600; color: #e5e7eb;
+    }
+    .greeting .subtext {
+      font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem;
+    }
+    .sidebar-header {
+      padding: 0.75rem 1.25rem; border-bottom: 1px solid #374151;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 600; }
+    .btn-new {
+      background: rgba(255,255,255,0.2); color: #fff; border: none; padding: 6px 14px;
+      border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-new:hover { background: rgba(255,255,255,0.3); }
+    .post-list { flex: 1; overflow-y: auto; padding: 0.5rem 0; }
+    .post-list-item {
+      padding: 0.75rem 1.25rem; cursor: pointer; border-left: 3px solid transparent;
+      transition: all 0.15s; display: flex; align-items: center; justify-content: space-between;
+    }
+    .post-list-item:hover { background: rgba(255,255,255,0.05); }
+    .post-list-item.active { background: rgba(255,255,255,0.1); border-left-color: #2563eb; }
+    .post-list-item .title { font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+    .post-list-item .date { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
+    .btn-delete {
+      background: none; border: none; color: #9ca3af; cursor: pointer; font-size: 0.85rem;
+      padding: 4px 8px; border-radius: 6px; opacity: 0; transition: all 0.15s;
+    }
+    .post-list-item:hover .btn-delete { opacity: 1; }
+    .btn-delete:hover { color: #ef4444; background: rgba(239,68,68,0.15); }
+
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .toolbar {
+      padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e7eb;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .toolbar label { font-size: 0.85rem; color: #6b7280; font-weight: 500; }
+    .toolbar input[type="text"] {
+      padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 8px;
+      font-size: 0.9rem; outline: none; min-width: 200px;
+    }
+    .toolbar input[type="text"]:focus { border-color: #2563eb; }
+    .toolbar input.small { min-width: 100px; width: 100px; }
+    .btn-save {
+      margin-left: auto; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: #fff; border: none; padding: 10px 24px; border-radius: 10px;
+      cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+    }
+    .btn-save:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.4); }
+    .btn-save:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .save-status { font-size: 0.85rem; color: #6b7280; }
+    .save-status.success { color: #16a34a; }
+    .save-status.error { color: #ef4444; }
+
+    .editor-container {
+      flex: 1; overflow: hidden; padding: 1.5rem;
+    }
+    .editor-wrapper {
+      background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      height: 100%; overflow: hidden;
+    }
+
+    .empty-state {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      color: #9ca3af; font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <h1>欢迎回来呀~</h1>
+      <p>写下你的故事和思考吧</p>
+      <input type="password" id="passwordInput" placeholder="密码" autofocus>
+      <button onclick="login()">✍️ 开始创作</button>
+      <div class="login-error" id="loginError">密码错误，请重试</div>
+    </div>
+  </div>
+
+  <div class="app" id="app" style="display:none">
+    <div class="sidebar">
+      <div class="greeting" id="greeting"></div>
+      <div class="sidebar-header">
+        <h2>文章列表</h2>
+        <button class="btn-new" onclick="newPost()">+ 新建</button>
+      </div>
+      <div class="post-list" id="postList"></div>
+    </div>
+    <div class="main" id="main">
+      <div class="empty-state" id="emptyState">选择一篇文章开始编辑，或点击「+ 新建」</div>
+      <div id="editorArea" style="display:none;flex:1;display:flex;flex-direction:column;">
+        <div class="toolbar">
+          <label>标题</label>
+          <input type="text" id="titleInput" placeholder="文章标题">
+          <label>日期</label>
+          <input type="text" id="dateInput" class="small" placeholder="2024-08-23">
+          <label>分类</label>
+          <input type="text" id="categoryInput" class="small" placeholder="数据分析, 游戏行业">
+          <label>标签</label>
+          <input type="text" id="tagsInput" class="small" placeholder="AB实验, 因果推断">
+        </div>
+        <div class="toolbar" style="padding-top: 0.5rem;">
+          <label>文章摘要</label>
+          <input type="text" id="excerptInput" placeholder="文章的简短介绍，会显示在首页">
+          <button class="btn-save" id="btnSave" onclick="savePost()">保存</button>
+          <span class="save-status" id="saveStatus"></span>
+        </div>
+        <div class="editor-container">
+          <div class="editor-wrapper">
+            <div id="editor"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let editor = null;
+    let currentFile = null;
+    let posts = [];
+
+    document.getElementById('passwordInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') login();
+    });
+
+    function getGreeting() {
+      const hour = new Date().getHours();
+      const greetings = [
+        { emoji: '🌅', text: '早上好呀~', subtext: '新的一天，从码字开始！' },
+        { emoji: '☀️', text: '下午好！', subtext: '灵感爆发，写起来！' },
+        { emoji: '🌙', text: '晚上好呀', subtext: '夜深人静，正是创作好时候~' },
+        { emoji: '✨', text: '还没睡呀！', subtext: '这篇写完就快去休息吧~' }
+      ];
+      if (hour >= 5 && hour < 12) return greetings[0];
+      if (hour >= 12 && hour < 18) return greetings[1];
+      if (hour >= 18 && hour < 24) return greetings[2];
+      return greetings[3];
+    }
+
+    function renderGreeting() {
+      const g = getGreeting();
+      document.getElementById('greeting').innerHTML = `
+        <div class="emoji">${g.emoji}</div>
+        <div class="text">${g.text}</div>
+        <div class="subtext">${g.subtext}</div>
+      `;
+    }
+
+    async function login() {
+      const pw = document.getElementById('passwordInput').value;
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw }),
+      });
+      if (res.ok) {
+        document.getElementById('loginOverlay').style.display = 'none';
+        document.getElementById('app').style.display = 'flex';
+        renderGreeting();
+        loadPosts();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+
+    async function api(method, url, body) {
+      const opts = { method, headers: { 'Content-Type': 'application/json' } };
+      if (body) opts.body = JSON.stringify(body);
+      const res = await fetch(url, opts);
+      if (res.status === 401) {
+        document.getElementById('loginOverlay').style.display = 'flex';
+        document.getElementById('app').style.display = 'none';
+        throw new Error('未登录');
+      }
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: '请求失败' }));
+        throw new Error(err.error || '请求失败');
+      }
+      return res.json();
+    }
+
+    async function loadPosts() {
+      posts = await api('GET', '/api/posts');
+      renderPostList();
+    }
+
+    function renderPostList() {
+      const list = document.getElementById('postList');
+      list.innerHTML = posts.map((p) => `
+        <div class="post-list-item ${currentFile === p.filename ? 'active' : ''}" onclick="openPost('${p.filename}')">
+          <div>
+            <div class="title">${escapeHtml(p.title)}</div>
+            <div class="date">${p.date}</div>
+          </div>
+          <button class="btn-delete" onclick="event.stopPropagation();deletePost('${p.filename}')" title="删除">✕</button>
+        </div>
+      `).join('');
+    }
+
+    async function openPost(filename) {
+      const data = await api('GET', `/api/posts/${encodeURIComponent(filename)}`);
+      currentFile = filename;
+      document.getElementById('emptyState').style.display = 'none';
+      document.getElementById('editorArea').style.display = 'flex';
+      document.getElementById('titleInput').value = data.frontmatter.title || '';
+      document.getElementById('dateInput').value = data.frontmatter.date || '';
+      document.getElementById('excerptInput').value = data.frontmatter.excerpt || '';
+      document.getElementById('categoryInput').value = Array.isArray(data.frontmatter.category)
+        ? data.frontmatter.category.join(', ')
+        : (data.frontmatter.category || '');
+      document.getElementById('tagsInput').value = Array.isArray(data.frontmatter.tags)
+        ? data.frontmatter.tags.join(', ')
+        : (data.frontmatter.tags || '');
+      
+      if (editor) editor.destroy();
+      editor = new toastui.Editor({
+        el: document.querySelector('#editor'),
+        initialValue: data.body,
+        initialEditType: 'wysiwyg',
+        previewStyle: 'vertical',
+        height: '100%',
+        useCommandShortcut: true,
+        toolbarItems: [
+          ['heading', 'bold', 'italic', 'strike'],
+          ['hr', 'quote'],
+          ['ul', 'ol', 'task'],
+          ['table', 'link', 'image', 'code', 'codeblock']
+        ]
+      });
+      renderPostList();
+    }
+
+    function newPost() {
+      currentFile = null;
+      document.getElementById('emptyState').style.display = 'none';
+      document.getElementById('editorArea').style.display = 'flex';
+      document.getElementById('titleInput').value = '';
+      document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
+      document.getElementById('excerptInput').value = '';
+      document.getElementById('categoryInput').value = '';
+      document.getElementById('tagsInput').value = '';
+      
+      if (editor) editor.destroy();
+      editor = new toastui.Editor({
+        el: document.querySelector('#editor'),
+        initialEditType: 'wysiwyg',
+        previewStyle: 'vertical',
+        height: '100%',
+        useCommandShortcut: true,
+        toolbarItems: [
+          ['heading', 'bold', 'italic', 'strike'],
+          ['hr', 'quote'],
+          ['ul', 'ol', 'task'],
+          ['table', 'link', 'image', 'code', 'codeblock']
+        ]
+      });
+      renderPostList();
+    }
+
+    async function savePost() {
+      const title = document.getElementById('titleInput').value.trim();
+      const date = document.getElementById('dateInput').value.trim();
+      const excerpt = document.getElementById('excerptInput').value.trim();
+      const category = document.getElementById('categoryInput').value
+        .split(',').map((s) => s.trim()).filter(Boolean);
+      const tags = document.getElementById('tagsInput').value
+        .split(',').map((s) => s.trim()).filter(Boolean);
+      
+      if (!editor) { alert('请先选择或新建文章'); return; }
+      const body = editor.getMarkdown();
+
+      if (!title) { alert('请输入标题'); return; }
+      if (!body.trim()) { alert('请输入内容'); return; }
+
+      const filename = currentFile || (title.replace(/[^\w\u4e00-\u9fff]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase().slice(0, 60) + '.md');
+      const btn = document.getElementById('btnSave');
+      const status = document.getElementById('saveStatus');
+      btn.disabled = true;
+      status.textContent = '保存中...';
+      status.className = 'save-status';
+
+      try {
+        await api('PUT', `/api/posts/${encodeURIComponent(filename)}`, { title, date, category, tags, excerpt, body });
+        currentFile = filename;
+        status.textContent = '✓ 已保存';
+        status.className = 'save-status success';
+        await loadPosts();
+      } catch (e) {
+        status.textContent = '保存失败: ' + e.message;
+        status.className = 'save-status error';
+      }
+      btn.disabled = false;
+      setTimeout(() => { status.textContent = ''; }, 3000);
+    }
+
+    async function deletePost(filename) {
+      if (!confirm(`确定删除「${filename}」？此操作不可撤销。`)) return;
+      await api('DELETE', `/api/posts/${encodeURIComponent(filename)}`);
+      if (currentFile === filename) {
+        currentFile = null;
+        if (editor) editor.destroy();
+        document.getElementById('editorArea').style.display = 'none';
+        document.getElementById('emptyState').style.display = 'flex';
+      }
+      await loadPosts();
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        savePost();
+      }
+    });
+  </script>
+</body>
+</html>

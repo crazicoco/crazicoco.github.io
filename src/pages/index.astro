@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('posts'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = [...new Set(allPosts.flatMap((p) => p.data.category))];
+---
+
+<BaseLayout>
+  <section class="hero">
+    <h1>AI 为世界赋能</h1>
+    <p class="subtitle">
+      让我们用 AI 带来认知突变
+    </p>
+    <div class="social-links">
+      <a href="https://github.com/crazicoco" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:1332574734@qq.com">Email</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="http://localhost:3456" class="edit-btn" target="_blank" rel="noopener">✍️ 写文章</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="category-filter" id="categoryFilter">
+      <button class="category-btn active" data-category="all">全部</button>
+      {categories.map((cat) => (
+        <button class="category-btn" data-category={cat}>{cat}</button>
+      ))}
+    </div>
+
+    <ul class="post-list">
+      {allPosts.map((post) => (
+        <li class="post-item" data-categories={['all', ...post.data.category].join(',')}>
+          <h2>
+            <a href={`/posts/${post.id}`}>{post.data.title}</a>
+          </h2>
+          <p class="post-excerpt">{post.data.excerpt || ''}</p>
+          <div class="post-meta">
+            <time class="post-date" datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            {post.data.category.length > 0 && (
+              <span class="post-categories">
+                {post.data.category.map((cat) => (
+                  <span class="post-category-label">{cat}</span>
+                ))}
+              </span>
+            )}
+            {post.data.tags.length > 0 && (
+              <span class="post-tags">
+                {post.data.tags.map((tag) => (
+                  <span class="post-tag">{tag}</span>
+                ))}
+              </span>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll('.category-btn');
+  const items = document.querySelectorAll('.post-item');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cat = btn.dataset.category;
+
+      items.forEach((item) => {
+        const itemCats = item.dataset.categories.split(',');
+        if (cat === 'all' || itemCats.includes(cat)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

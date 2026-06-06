@@ -1,0 +1,18 @@
+{
+  "name": "crazicoco-blog",
+  "version": "2.0.0",
+  "description": "飞絮的技术博客 - 数据科学、数据分析与因果推断",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "editor": "node scripts/editor-server.js"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7",
+    "express": "^4.22.2",
+    "express-session": "^1.19.0"
+  }
+}
